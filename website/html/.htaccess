@@ -1,0 +1,20 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^semanticscience.org
+RewriteRule statement/I_am$ /statement/I_am.ttl [R=seeother,T=text/turtle]
+RewriteRule resource/(SIO([A-Z]+)?[_]+(.*))$ resource/about.sio.php?id=$1
+RewriteRule resource/(CHEMINF([A-Z]+)?[_]+(.*))$ resource/about.cheminf.php?id=$1
+RewriteRule resource/image/(.*)$ resource/image/$1
+RewriteRule resource/([a-z\-\s]+)$ resource/about.sio.php?id=$1
+RewriteRule resource/([a-z\-\s]+\.rdf)$ resource/about.sio.php?id=$1
+RewriteRule test/([a-z\-\s]+)$ test/test.php?id=$1
+RewriteRule test/([a-z\-\s]+\.rdf)$ test/test.php?id=$1
+RewriteRule serv:(.*)$ /ontology/serv.owl [R=seeother,T=application/rdf+xml]
+RewriteRule ontology/refresh.php /ontology/refresh.php
+RewriteRule ontology/cheminf.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf.owl [L]
+RewriteRule ontology/cheminf-core.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-core.owl [L]
+RewriteRule ontology/cdk.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cdk.owl [L]
+RewriteRule ontology/cheminf-algorithms.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-algorithms.owl [L]
+RewriteRule ontology/cheminf-external.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-external.owl [L]
+RewriteRule ontology/sio.owl https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/sio-release.owl [L]
+RewriteRule ontology/sio/(v[^\/]+)/(.*)$ https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/$2 [L]
+RewriteRule ontology/(.*) https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/$1

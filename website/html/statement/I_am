@@ -1,0 +1,7 @@
+prefix my: <http://semanticscience.org/statement/>
+prefix sio: <http://semanticscience.org/resource/>
+
+my:I_am 
+  a sio:statement;
+  sio:has-value "I am"@en.
+

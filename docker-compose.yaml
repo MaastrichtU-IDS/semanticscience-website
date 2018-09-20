@@ -1,0 +1,39 @@
+version: "3"
+
+services: 
+
+  website:
+    build: website
+    volumes:
+      - ./website/html:/var/www/html
+      - ./loader:/loader
+      - /data/semanticscience:/data
+    networks:
+      - net
+    ports:
+      - 81:80
+      
+  virtuoso:
+    image: tenforce/virtuoso
+    restart: unless-stopped
+    hostname: bio2rdf.org
+    environment:
+      - DBA_PASSWORD=dba
+      - SPARQL_UPDATE=true
+      - DEFAULT_GRAPH=http://bio2rdf.org/
+      - VIRT_SPARQL_MaxQueryCostEstimationTime=100000
+      - VIRT_SPARQL_MaxQueryCostEstimationTime=9000
+      - VIRT_SPARQL_MaxQueryExecutionTime=6000
+    volumes:
+      - /data/semanticscience/db:/data
+      - /data/semanticscience/sio:/data/sio
+      - ./virtuoso/virtuoso.ini:/data/virtuoso.ini
+    networks:
+      - net
+    ports:
+      - 8891:8890
+                                            
+networks:
+
+  net:
+    driver: bridge
