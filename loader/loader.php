@@ -67,7 +67,7 @@ if($options['instance'] != 'instancename') {
 }
 
 $cmd_pre = "$isql -H virtuoso -S ".$options['port']." -U ".$options['user']." -P ".$options['pass']." verbose=on banner=off prompt=off echo=ON errors=stdout exec=".'"'; $cmd_post = '"';
-echo $cmd_pre ;
+// echo $cmd_pre ;
 
 // associate a prefix with namespace
 // http://docs.openlinksw.com/virtuoso/fn_xml_set_ns_decl.html
