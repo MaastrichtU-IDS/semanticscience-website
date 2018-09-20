@@ -10,12 +10,6 @@ RUN apt-get update && apt-get install -y git zip virtuoso-minimal && \
   a2enmod headers && \
   echo "Header set Access-Control-Allow-Origin \"*\"" >> /etc/apache2/sites-available/000-default.conf
   
-# WORKDIR /tmp
-# RUN php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer
-
-#WORKDIR /var/www/html
-#COPY . .
-
-# RUN composer install
+WORKDIR /loader
 
 EXPOSE 80
