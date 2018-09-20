@@ -4,14 +4,17 @@ services:
 
   website:
     build: website
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=semanticscience.org
     volumes:
       - ./website/html:/var/www/html
       - ./loader:/loader
       - /data/semanticscience:/data
     networks:
       - net
-    ports:
-      - 81:80
+    #ports:
+    #  - 81:80
       
   virtuoso:
     image: tenforce/virtuoso
@@ -30,8 +33,8 @@ services:
       - ./virtuoso/virtuoso.ini:/data/virtuoso.ini
     networks:
       - net
-    ports:
-      - 8891:8890
+    #ports:
+    #  - 8891:8890
                                             
 networks:
 
