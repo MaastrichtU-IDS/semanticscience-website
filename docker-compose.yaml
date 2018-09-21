@@ -6,7 +6,7 @@ services:
     build: website
     restart: unless-stopped
     environment:
-      - VIRTUAL_HOST=semanticscience.org
+      - VIRTUAL_HOST=semanticscience.org,test.semanticscience.org
     volumes:
       - ./website/html:/var/www/html
       - ./loader:/loader
@@ -33,8 +33,8 @@ services:
       - ./virtuoso/virtuoso.ini:/data/virtuoso.ini
     networks:
       - net
-    #ports:
-    #  - 8891:8890
+    ports:
+      - 8891:8890
                                             
 networks:
 

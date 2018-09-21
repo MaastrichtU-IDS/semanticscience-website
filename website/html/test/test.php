@@ -1,6 +1,6 @@
 <?php
 
-$arcdir = "/data/semanticscience/sio/arc/";
+$arcdir = "/data/sio/arc/";
 include_once($arcdir.'/ARC2.php');
 
 $ns = array(
