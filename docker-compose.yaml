@@ -6,7 +6,7 @@ services:
     build: website
     restart: unless-stopped
     environment:
-      - VIRTUAL_HOST=semanticscience.org,test.semanticscience.org
+      - VIRTUAL_HOST=semanticscience.org,sio.semanticscience.org
     volumes:
       - ./website/html:/var/www/html
       - ./loader:/loader
