@@ -1,8 +1,8 @@
 <?php
 $php = "php";
 $base_dir    = "/data/sio/";
-$sio_dir     = "/data/semanticscience/";
-$cheminf_dir = "/data/semanticchemistry/";
+$sio_dir     = "/usr/local/virtuoso-opensource/var/lib/virtuoso/db/import/semanticscience/";
+$cheminf_dir = "/usr/local/virtuoso-opensource/var/lib/virtuoso/db/import/semanticchemistry/";
 $port = 1111;
 
 $graphs = array(
@@ -11,11 +11,10 @@ $graphs = array(
 );
 
 system( "mkdir -p $sio_dir");
-system( "cd $sio_dir");
-system( "git clone https://github.com/MaastrichtU-IDS/semanticscience.git");
-exit;
+system( "git clone https://github.com/MaastrichtU-IDS/semanticscience.git $sio_dir");
+//exit;
 system( "mkdir -p $cheminf_dir");
-system( "cd $cheminf_dir;git clone https://github.com/semanticchemistry/semanticchemistry.git");
+system( "cd $cheminf_dir;git clone https://github.com/semanticchemistry/semanticchemistry.git $cheminf_dir");
 
 
 $files = array(

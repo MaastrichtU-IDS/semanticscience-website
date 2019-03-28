@@ -1,7 +1,7 @@
 <?php
 $server = "semanticscience.org";
-$server = "localhost:81";
-$arcdir = "/lib/arc/";
+//$server = "localhost:81";
+$arcdir = "/lib/arc";
 include_once($arcdir.'/ARC2.php');
 
 $ns = array(

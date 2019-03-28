@@ -11,6 +11,7 @@ services:
       - ./website/html:/var/www/html
       - ./loader:/loader
       - ./website/arc:/lib/arc
+      - git-data:/data
     networks:
       - net
     #ports:
@@ -23,11 +24,13 @@ services:
     environment:
       - DBA_PASSWORD=dba
       - SPARQL_UPDATE=true
-     # - DEFAULT_GRAPH=http://bio2rdf.org/
+      # - DEFAULT_GRAPH=http://bio2rdf.org/
       #- VIRT_SPARQL_MaxQueryCostEstimationTime=100000
       #- VIRT_SPARQL_MaxQueryCostEstimationTime=9000
       #- VIRT_SPARQL_MaxQueryExecutionTime=6000
-    #volumes:
+      - VIRT_PARAMETERS_DirsAllowed=., /import, /usr/local/virtuoso-opensource/share/virtuoso/vad
+    volumes:
+      - git-data:/usr/local/virtuoso-opensource/var/lib/virtuoso/db/import
       # - C:/data/semanticscience/db:/data
       #- C:/data/semanticscience/sio:/data/sio
       # - ./virtuoso/virtuoso.ini:/data/virtuoso.ini
@@ -35,6 +38,9 @@ services:
       - net
     ports:
       - 8891:8890
+
+volumes:
+  git-data:
                                             
 networks:
 
