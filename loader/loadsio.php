@@ -1,8 +1,8 @@
 <?php
 $php = "php";
 $base_dir    = "/data/sio/";
-$sio_dir     = "/data/sio/data/semanticscience/";
-$cheminf_dir = "/data/sio/data/semanticchemistry/";
+$sio_dir     = "/data/semanticscience/";
+$cheminf_dir = "/data/semanticchemistry/";
 $port = 1111;
 
 $graphs = array(
@@ -10,8 +10,12 @@ $graphs = array(
 	"cheminf"=> "http://bio2rdf.org/graph/cheminf"
 );
 
-system( "cd $sio_dir;git pull");
-system( "cd $cheminf_dir;git pull;");
+system( "mkdir -p $sio_dir");
+system( "cd $sio_dir");
+system( "git clone https://github.com/MaastrichtU-IDS/semanticscience.git");
+exit;
+system( "mkdir -p $cheminf_dir");
+system( "cd $cheminf_dir;git clone https://github.com/semanticchemistry/semanticchemistry.git");
 
 
 $files = array(

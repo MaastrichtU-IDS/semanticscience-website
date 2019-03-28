@@ -8,7 +8,8 @@ ARG APP_ENV=prod
 RUN apt-get update && apt-get install -y git zip virtuoso-minimal && \
   a2enmod rewrite && \
   a2enmod headers && \
-  echo "Header set Access-Control-Allow-Origin \"*\"" >> /etc/apache2/sites-available/000-default.conf
+  echo "Header set Access-Control-Allow-Origin \"*\"" >> /etc/apache2/sites-available/000-default.conf \
+  apt-get install nano -y
   
 WORKDIR /loader
 

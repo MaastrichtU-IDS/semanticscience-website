@@ -1,6 +1,7 @@
 <?php
-
-$arcdir = "/data/sio/arc/";
+$server = "semanticscience.org";
+$server = "localhost:81";
+$arcdir = "/lib/arc/";
 include_once($arcdir.'/ARC2.php');
 
 $ns = array(
@@ -30,7 +31,7 @@ if(strstr($str,".rdf")) {
         // just strip it
         $str = substr($str,0,-4);
 } else {
-	header("Location: http://semanticscience.org/resource/$str".".rdf", TRUE, 303);
+	header("Location: http://$server/resource/$str".".rdf", TRUE, 303);
 }
 
 $a = explode("SIO_",$str);
