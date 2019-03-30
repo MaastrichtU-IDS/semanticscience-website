@@ -22,7 +22,9 @@ $options = array(
  "setns" => "false",
  "format" => "n3",
  "ignoreerror" => "true",
- "startat" => ""
+ "startat" => "",
+ "install_fct" => "false",
+ "fct_path" => "/usr/local/virtuoso-opensource/share/virtuoso/vad/fct_dav.vad"
 );
 
 
@@ -82,6 +84,12 @@ if($options['setns'] == 'true') {
  }
   echo $out = shell_exec($cmd_pre.$cmd.$cmd_post);
   exit;
+}
+
+if($options['install_fct'] == 'true') {
+ echo "Installing facet browser\n";
+ $cmd = "vad_install ('".$options['fct_path']."', 0);";
+ echo $out = shell_exec($cmd_pre.$cmd.$cmd_post);
 }
 
 // check for valid file
