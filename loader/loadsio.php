@@ -24,6 +24,11 @@ $files = array(
 //	"cheminf-algorithms.owl"     => array('dir'=>$cheminf_dir.'ontology/', 'graph'=>$graphs['cheminf']),
 	"cheminf-external.owl" => array('dir'=>$cheminf_dir.'ontology/', 'graph'=>$graphs['cheminf'])
 );
+
+$cmd   = "$php loader.php pass=dba port=$port install_fct=true";
+echo $cmd.PHP_EOL;
+system($cmd);
+
 $i = 0;
 foreach($files AS $file => $a) {
   $graph = $a['graph'];
