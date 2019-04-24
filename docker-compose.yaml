@@ -13,7 +13,7 @@ services:
     networks:
       - net
     ports:
-      - 81:80
+      - 80:80
       
   virtuoso:
     image: tenforce/virtuoso
