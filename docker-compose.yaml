@@ -5,8 +5,6 @@ services:
   website:
     build: website
     restart: unless-stopped
-    environment:
-      - VIRTUAL_HOST=semanticscience.org,sio.semanticscience.org
     volumes:
       - ./website/html:/var/www/html
       - ./website/arc:/lib/arc
@@ -14,31 +12,27 @@ services:
       - git-data:/data
     networks:
       - net
-#    ports:
-#      - 81:80
+    ports:
+      - 81:80
       
   virtuoso:
     image: tenforce/virtuoso
-    # restart: unless-stopped
+    restart: unless-stopped
     hostname: bio2rdf.org
     environment:
       - DBA_PASSWORD=dba
       - SPARQL_UPDATE=true
-      #- VIRT_SPARQL_MaxQueryCostEstimationTime=100000
-      #- VIRT_SPARQL_MaxQueryCostEstimationTime=9000
-      #- VIRT_SPARQL_MaxQueryExecutionTime=6000
       - VIRT_PARAMETERS_DirsAllowed=., /import, /usr/local/virtuoso-opensource/share/virtuoso/vad
     volumes:
       - git-data:/usr/local/virtuoso-opensource/var/lib/virtuoso/db/import
     networks:
       - net
     ports:
-      - 8891:8890
+      - 8890:8890
 
 volumes:
   git-data:
                                             
 networks:
-
   net:
     driver: bridge
