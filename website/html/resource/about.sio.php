@@ -200,7 +200,7 @@ $doc = $store->toRDFXML($rs['result']);
 
 $search  = '<?xml version="1.0" encoding="UTF-8"?>';
 $replace = '<?xml version="1.0" encoding="UTF-8" ?>
-<?xml-stylesheet type="text/xsl" href="://semanticscience.org/resource/resource.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="https://semanticscience.org/resource/resource.xsl" ?>
 ';
 $doc = str_replace($search,$replace,$doc);
 
