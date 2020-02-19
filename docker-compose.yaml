@@ -5,6 +5,9 @@ services:
   website:
     build: website
     restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=semanticscience.org,sio.semanticscience.org
+      - LETSENCRYPT_HOST=semanticscience.org,sio.semanticscience.org
     volumes:
       - ./website/html:/var/www/html
       - ./website/arc:/lib/arc
