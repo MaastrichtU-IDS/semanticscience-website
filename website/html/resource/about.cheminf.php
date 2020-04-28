@@ -1,7 +1,7 @@
 <?php
 
 //$_GET['id'] = '000000.rdf';
-$arcdir = "/data/sio/arc/";
+$arcdir = "/lib/arc";
 
 /* ARC2 static class inclusion */ 
 include_once($arcdir.'/ARC2.php');
