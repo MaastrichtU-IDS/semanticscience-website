@@ -1,9 +1,11 @@
-version: "3"
+version: "2"
+# version: "3"
 
 services: 
 
   website:
     build: website
+    container_name: semanticscience-website
     restart: unless-stopped
     environment:
       - VIRTUAL_HOST=semanticscience.org,sio.semanticscience.org
@@ -18,6 +20,7 @@ services:
       
   virtuoso:
     image: tenforce/virtuoso
+    container_name: semanticscience-virtuoso
     restart: unless-stopped
     hostname: bio2rdf.org
     environment:
