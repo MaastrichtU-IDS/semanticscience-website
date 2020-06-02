@@ -2,6 +2,14 @@
 
 Fully functional semantic science website. Use `docker-compose.prod.yaml` (will be ignored by git) for production environments.
 
+## Prepare data
+
+Prepare the 2 ontologies that will be deployed, this will clone them in `/data/semanticscience-data`:
+
+```bash
+./prepare-data.sh
+```
+
 ## Run
 
 ```bash
