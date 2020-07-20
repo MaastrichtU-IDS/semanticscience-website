@@ -46,12 +46,18 @@ docker-compose restart
 Daily update the SemanticScience website on Centos:
 
 ```bash
-ln -s update-sio.sh /etc/cron.daily
+sudo cp update-sio.sh /etc/cron.daily/update-sio
 ```
 
 Check the CRON job logs:
 
 ```bash
 sudo vim /var/log/cron
+```
+
+Remove the daily CRON job:
+
+```bash
+sudo rm /etc/cron.daily/update-sio
 ```
 
