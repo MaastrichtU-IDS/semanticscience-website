@@ -41,3 +41,17 @@ Restart the 2 docker containers:
 docker-compose restart
 ```
 
+### Setup CRON job 
+
+Daily update the SemanticScience website on Centos:
+
+```bash
+ln -s update-sio.sh /etc/cron.daily
+```
+
+Check the CRON job logs:
+
+```bash
+sudo vim /var/log/cron
+```
+
