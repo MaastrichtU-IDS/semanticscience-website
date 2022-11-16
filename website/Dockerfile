@@ -1,4 +1,5 @@
-FROM php:8.1-apache
+# FROM php:8.1-apache
+FROM php:5.6-apache
 
 MAINTAINER Alexander Malic <alexander.malic@maastrichtuniversity.nl>
 MAINTAINER Michel Dumontier <michel.dumontier@maastrichtuniversity.nl>
