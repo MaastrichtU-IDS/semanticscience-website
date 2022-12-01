@@ -1,0 +1,12 @@
+RewriteEngine on
+# RewriteCond %{HTTP_HOST} ^semanticscience.org
+RewriteRule resource/(SIO([A-Z]+)?[_]+(.*))$ https://ontobee.org/ontology/SIO?iri=http://semanticscience.org/resource/$1 [R=307,L]
+RewriteRule resource/(CHEMINF([A-Z]+)?[_]+(.*))$ https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/$1 [R=307,L]
+RewriteRule ontology/cheminf.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf.owl [L]
+RewriteRule ontology/cheminf-core.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-core.owl [L]
+RewriteRule ontology/cdk.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cdk.owl [L]
+RewriteRule ontology/cheminf-algorithms.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-algorithms.owl [L]
+RewriteRule ontology/cheminf-external.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf-external.owl [L]
+RewriteRule ontology/sio.owl https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/sio-release.owl [L]
+RewriteRule ontology/sio/(v[^\/]+)/(.*)$ https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/$2 [L]
+RewriteRule ontology/(.*) https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/$1
