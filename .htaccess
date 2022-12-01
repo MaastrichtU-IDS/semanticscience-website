@@ -1,5 +1,6 @@
 RewriteEngine on
 # RewriteCond %{HTTP_HOST} ^semanticscience.org
+RewriteRule ^$ https://github.com/MaastrichtU-IDS/semanticscience [R=307,L]
 RewriteRule resource/(SIO([A-Z]+)?[_]+(.*))$ https://ontobee.org/ontology/SIO?iri=http://semanticscience.org/resource/$1 [R=307,L]
 RewriteRule resource/(CHEMINF([A-Z]+)?[_]+(.*))$ https://ontobee.org/ontology/CHEMINF?iri=http://semanticscience.org/resource/$1 [R=307,L]
 RewriteRule ontology/cheminf.owl https://raw.githubusercontent.com/semanticchemistry/semanticchemistry/master/ontology/cheminf.owl [L]
