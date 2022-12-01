@@ -1,23 +1,14 @@
 # About
 
-Fully functional semantic science website. Use `docker-compose.prod.yaml` (will be ignored by git) for production environments.
+Semantic science website, which redirects queries from http://semanticscience.org/resource/* to the right concept in [Ontobee](https://ontobee.org/)
 
-## Prepare data
-
-Clone the 2 ontologies that will be deployed, this will clone them in `/data/semanticscience-data`:
-
-```bash
-./prepare-data.sh
-```
-
-## Run
+## Run locally
 
 ```bash
 docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d
 ```
 
-* SemanticScience website at http://localhost
-* SemanticScience Virtuoso at http://localhost:8890
+SemanticScience website at http://localhost, e.g. http://localhost/resource/SIO_000001
 
 ## Run with default nginx proxy
 
@@ -25,39 +16,5 @@ Using [jwilder/nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) to deplo
 
 ```bash
 docker-compose up -d
-```
-
-### Update
-
-Load a new version of SIO ontology in Virtuoso:
-
-```bash
-docker exec -it semanticscience-website php /loader/loadsio.php
-```
-
-Restart the 2 docker containers:
-
-```bash
-docker-compose restart
-```
-
-### Setup CRON job 
-
-Daily update the SemanticScience website on Centos:
-
-```bash
-sudo cp update-sio.sh /etc/cron.daily/update-sio
-```
-
-Check the CRON job logs:
-
-```bash
-sudo vim /var/log/cron
-```
-
-Remove the daily CRON job:
-
-```bash
-sudo rm /etc/cron.daily/update-sio
 ```
 
